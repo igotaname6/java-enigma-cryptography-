@@ -7,4 +7,15 @@ public class AtbashCipher implements EnigmaService {
     private static List<Character> alphabet = createAlphabet();
     private static List<Character> reverseAlphabet = reverseAlphabet(alphabet);
 
+    private static List<Character> createAlphabet(){
+        List<Character> alphabet = new ArrayList<Character>();
+
+        for(char letter = 'A'; letter <= 'Z'; letter++) {
+            alphabet.add(letter);
+        }
+
+        return alphabet;
+    }
+
+
 }
