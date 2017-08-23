@@ -1,19 +1,21 @@
 package app;
 
-import java.io.Scanner;
+import registry.ServiceProvider;
+import services.EnigmaService;
+import java.util.Scanner;
 
 
 public class TerminalTranslator implements Module{
-    private inEncipherMode;
-    private cipherName;
-    private service;
-    private key;
+    private Boolean inEncipherMode;
+    private String cipherName;
+    private EnigmaService service;
+    private String key;
 
 
     public TerminalTranslator(Boolean inEncipherMode, String cipherName, String key){
-        this.isEncipherMode = inEncipherMode;
+        this.inEncipherMode = inEncipherMode;
         this.cipherName = cipherName;
-        tihs.service = null;
+        this.service = null;
         this.key = key;
     }
 
@@ -21,14 +23,31 @@ public class TerminalTranslator implements Module{
         EnigmaService service;
         this.service = provider.getByName(cipherName);
         if (this.service.isKeyRequired()){
-            this.service.setKey(this.key)
+            this.service.setKey(this.key);
         }
     }
     public String getName(){
         if (this.service == null){
-            return "None"
+            return "None";
         } else {
             return this.service.getName();
+        }
+    }
+    public void start(){
+        Scanner sysInput;
+        String line;
+        String cipherOutput;
+
+
+        sysInput = new Scanner(System.in);
+        while (sysInput.hasNextLine()){
+            line = sysInput.nextLine();
+            if (this.inEncipherMode){
+                cipherOutput = service.encipher(line);
+            } else {
+                cipherOutput = service.decipher(line);
+            }
+            System.out.println(cipherOutput);
         }
     }
 }
