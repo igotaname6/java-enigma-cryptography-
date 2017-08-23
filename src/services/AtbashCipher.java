@@ -38,7 +38,8 @@ public class AtbashCipher implements EnigmaService {
     public String encipher(String text) {
         char[] textArray = text.toUpperCase().toCharArray();
 
-        for (int i = 0; i >= textArray.length; i++) {
+        for (int i = 0; i < textArray.length; i++) {
+
             int iInAlph = alphabet.indexOf(textArray[i]); //iInAlph - index in alphabet
             Character letterForSwap = reverseAlphabet.get(iInAlph);
             textArray[i] = letterForSwap;
@@ -51,7 +52,7 @@ public class AtbashCipher implements EnigmaService {
     public String decipher(String text) {
         char[] textArray = text.toUpperCase().toCharArray();
 
-        for (int i = 0; i >= textArray.length; i++) {
+        for (int i = 0; i < textArray.length; i++) {
             int iInReverseAlph = reverseAlphabet.indexOf(textArray[i]); //iInReverseAlph - index in reverse alphabet
             Character letterForSwap = alphabet.get(iInReverseAlph);
             textArray[i] = letterForSwap;
@@ -71,13 +72,6 @@ public class AtbashCipher implements EnigmaService {
 
     public void setKey(String key) {
         this.key = key;
-    }
-
-    public static void main (String... args) {
-        AtbashCipher cipher = new AtbashCipher();
-        String en = cipher.encipher("DUPA");
-        System.out.println(en);
-        System.out.println(cipher.encipher(en));
     }
 
 }
