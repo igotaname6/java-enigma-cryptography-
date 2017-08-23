@@ -63,4 +63,8 @@ public class AtbashCipher implements EnigmaService {
         return isKeyRequired;
     }
 
+    public void setKey(String key) {
+        this.key = key;
+    }
+
 }
