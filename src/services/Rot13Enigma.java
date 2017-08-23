@@ -18,5 +18,21 @@ public class Rot13Enigma {
         }
         return encrypted_text.toString();
     }
+
+    public String decipher(String text){
+        return encipher(text);
+    }
+        
+    public String getName(){
+        return "Rot13";
+    }
+        
+    public boolean isKeyRequired(){
+        return false;
+    }
+    
+    public void setKey(String key) {
+    }
+    
 }
 
