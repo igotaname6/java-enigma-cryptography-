@@ -8,5 +8,9 @@ public class ServiceRepository implements ServiceProvider, ServiceRegistry {
 
     private static List<EnigmaService> enigmasList = new ArrayList();
 
+    public void register(EnigmaService service) {
+        enigmasList.add(service);
+    }
+
 
 }
