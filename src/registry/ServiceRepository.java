@@ -12,5 +12,12 @@ public class ServiceRepository implements ServiceProvider, ServiceRegistry {
         enigmasList.add(service);
     }
 
+    public List<String> listAll() {
+        List<String> enigmasNames = new ArrayList();
 
+        for (EnigmaService enigma : enigmasList) {
+            enigmasNames.add(enigma.getName());
+        }
+        return enigmasNames;
+	}
 }
