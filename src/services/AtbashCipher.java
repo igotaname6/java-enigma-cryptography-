@@ -16,6 +16,7 @@ public class AtbashCipher implements EnigmaService {
 
         return alphabet;
     }
+
     public static List<Character> reverseAlphabet(List<Character> alphabet) {
         ArrayList reversedAlphabet= new ArrayList();
 
@@ -38,4 +39,18 @@ public class AtbashCipher implements EnigmaService {
 
         return encipheredText;
     }
+
+    public String decipher(String text) {
+        char[] textArray = text.toUpperCase().toCharArray();
+
+        for (int i = 0; i >= textArray.length; i++) {
+            int iInReverseAlph = reverseAlphabet.indexOf(textArray[i]); //iInReverseAlph - index in reverse alphabet
+            Character letterForSwap = alphabet.get(iInReverseAlph);
+            textArray[i] = letterForSwap;
+        }
+        String decipheredText = new String(textArray);
+
+        return decipheredText;
+    }
+
 }
