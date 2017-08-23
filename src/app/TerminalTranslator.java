@@ -19,4 +19,11 @@ public class TerminalTranslator implements Module{
         EnigmaService service;
         this.service = provider.getByName(cipherName);
     }
+    public String getName(){
+        if (this.service == null){
+            return "None"
+        } else {
+            return this.service.getName();
+        }
+    }
 }
