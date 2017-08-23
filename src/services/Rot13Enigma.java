@@ -1,4 +1,6 @@
-public class Rot13Enigma {
+import services.EnigmaService;
+
+public class Rot13Enigma implements EnigmaService {
 
     public Rot13Enigma() {
     }
@@ -25,7 +27,7 @@ public class Rot13Enigma {
         
     public String getName(){
         return "Rot13";
-    }
+    } 
         
     public boolean isKeyRequired(){
         return false;
@@ -33,6 +35,6 @@ public class Rot13Enigma {
     
     public void setKey(String key) {
     }
-    
+
 }
 
