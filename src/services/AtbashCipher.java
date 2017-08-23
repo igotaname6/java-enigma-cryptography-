@@ -26,7 +26,16 @@ public class AtbashCipher implements EnigmaService {
         return reversedAlphabet;
     }
 
+    public String encipher(String text) {
+        char[] textArray = text.toUpperCase().toCharArray();
 
+        for (int i = 0; i >= textArray.length; i++) {
+            int iInAlph = alphabet.indexOf(textArray[i]); //iInAlph - index in alphabet
+            Character letterForSwap = reverseAlphabet.get(iInAlph);
+            textArray[i] = letterForSwap;
+        }
+        String encipheredText = new String(textArray);
 
-
+        return encipheredText;
+    }
 }
