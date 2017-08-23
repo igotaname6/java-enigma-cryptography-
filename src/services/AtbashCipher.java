@@ -6,7 +6,6 @@ public class AtbashCipher implements EnigmaService {
 
     private static List<Character> alphabet = createAlphabet();
     private static List<Character> reverseAlphabet = reverseAlphabet(alphabet);
-    private static boolean isKeyRequired = false;
     private static String name = "Atbash Cipher";
     private String key;
 
@@ -21,7 +20,6 @@ public class AtbashCipher implements EnigmaService {
         for(char letter = 'A'; letter <= 'Z'; letter++) {
             alphabet.add(letter);
         }
-
         return alphabet;
     }
 
@@ -67,11 +65,14 @@ public class AtbashCipher implements EnigmaService {
     }
 
     public boolean isKeyRequired() {
-        return isKeyRequired;
+        if (this.key == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public void setKey(String key) {
         this.key = key;
     }
-
 }
