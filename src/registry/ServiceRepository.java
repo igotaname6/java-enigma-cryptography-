@@ -6,10 +6,14 @@ import services.EnigmaService;
 
 public class ServiceRepository implements ServiceProvider, ServiceRegistry {
 
-    private static List<EnigmaService> enigmasList = new ArrayList();
+    private List<EnigmaService> enigmasList;
+
+    ServiceRepository() {
+        this.enigmasList = new ArrayList();
+    }
 
     public void register(EnigmaService service) {
-        enigmasList.add(service);
+        this.enigmasList.add(service);
     }
 
     public List<String> listAll() {
