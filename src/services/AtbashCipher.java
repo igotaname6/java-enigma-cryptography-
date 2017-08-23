@@ -73,4 +73,11 @@ public class AtbashCipher implements EnigmaService {
         this.key = key;
     }
 
+    public static void main (String... args) {
+        AtbashCipher cipher = new AtbashCipher();
+        String en = cipher.encipher("DUPA");
+        System.out.println(en);
+        System.out.println(cipher.encipher(en));
+    }
+
 }
