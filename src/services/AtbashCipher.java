@@ -59,4 +59,8 @@ public class AtbashCipher implements EnigmaService {
         return name;
     }
 
+    public boolean isKeyRequired() {
+        return isKeyRequired;
+    }
+
 }
