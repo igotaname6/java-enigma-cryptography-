@@ -19,7 +19,7 @@ public class ServiceRepository implements ServiceProvider, ServiceRegistry {
     public List<String> listAll() {
         List<String> enigmasNames = new ArrayList();
 
-        for (EnigmaService enigma : enigmasList) {
+        for (EnigmaService enigma : this.enigmasList) {
             enigmasNames.add(enigma.getName());
         }
         return enigmasNames;
@@ -27,7 +27,7 @@ public class ServiceRepository implements ServiceProvider, ServiceRegistry {
 
     public EnigmaService getByName(String name) {
 
-        for (EnigmaService enigma : enigmasList) {
+        for (EnigmaService enigma : this.enigmasList) {
             if (enigma.getName().equals(name)) {
                 return enigma;
             }
