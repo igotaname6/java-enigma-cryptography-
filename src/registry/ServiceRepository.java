@@ -20,4 +20,14 @@ public class ServiceRepository implements ServiceProvider, ServiceRegistry {
         }
         return enigmasNames;
 	}
+
+    public EnigmaService getByName(String name) {
+
+        for (EnigmaService enigma : enigmasList) {
+            if (enigma.getName().equals(name)) {
+                return enigma;
+            }
+        }
+        return null;
+    }
 }
