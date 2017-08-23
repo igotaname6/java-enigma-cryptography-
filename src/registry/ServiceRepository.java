@@ -8,7 +8,7 @@ public class ServiceRepository implements ServiceProvider, ServiceRegistry {
 
     private List<EnigmaService> enigmasList;
 
-    ServiceRepository() {
+    public ServiceRepository() {
         this.enigmasList = new ArrayList();
     }
 
