@@ -16,6 +16,17 @@ public class AtbashCipher implements EnigmaService {
 
         return alphabet;
     }
+    public static List<Character> reverseAlphabet(List<Character> alphabet) {
+        ArrayList reversedAlphabet= new ArrayList();
+
+        for (int i=alphabet.size()-1; i >= 0; i--){
+            char letter = alphabet.get(i);
+            reversedAlphabet.add(letter);
+    }
+        return reversedAlphabet;
+    }
+
+
 
 
 }
