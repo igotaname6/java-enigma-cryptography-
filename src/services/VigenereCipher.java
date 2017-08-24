@@ -1,4 +1,4 @@
-
+package services;
 
 import java.util.HashMap;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.lang.StringBuilder;
 import java.util.Set;
 
 
-public class VigenereCipher{
+public class VigenereCipher implements EnigmaService{
 
     private static String name = "Vinegere Cipher";
     private static Boolean isKeyRequiredBool = true;
