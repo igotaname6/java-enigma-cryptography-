@@ -3,6 +3,7 @@
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.lang.StringBuilder;
+import java.util.Set;
 
 
 public class VigenereCipher{
@@ -63,6 +64,10 @@ public class VigenereCipher{
 
         keyIndex  = 0;
         for(int index = 0; index < textCharArray.length; index++){
+            if (textCharArray[index] == ' '){
+                encryptedText.append(' ');
+                continue;
+            }
             encryptedLetter = encrypteOneChar(index, keyIndex, textCharArray, keyCharArray);
             encryptedText.append(encryptedLetter);
             keyIndex++;
@@ -86,7 +91,7 @@ public class VigenereCipher{
     }
 
     public String decipher(String text){
-        return "";
+        return " ";
     }
     public String getName(){
         return name;
