@@ -38,5 +38,28 @@ public class App {
 		repo.register(new AtbashCipher());
 	}
 	
+	public static Boolean checkCipherOperation(String cipherModeString, ServiceRepository repo) throws Exception {
+
+		Boolean encipher = null;
+		ArrayList<String> ciphersList;
+
+		if (cipherModeString.equals("-e")) {
+			encipher = true;
+		}
+		else if (cipherModeString.equals("-d")) {
+			encipher = false;
+		}
+		else if (cipherModeString.equals("-l")){
+			ciphersList = repo.listAll();
+			
+			for (String cipher : ciphersList) {
+				System.out.println(cipher);
+			}
+		}	
+		else {
+			throw new Exception("Wrong cipher operation (-e/-d/-l)");
+		}
+		return encipher;
+	}
 }
 
