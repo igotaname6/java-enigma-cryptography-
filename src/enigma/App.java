@@ -31,6 +31,12 @@ public class App {
 			throw new Exception("Enter cipher name");
 		}
 	}
+
+	public static void loadCiphers(ServiceRepository repo) {
+
+		repo.register(new Rot13Enigma());
+		repo.register(new AtbashCipher());
+	}
 	
 }
 
