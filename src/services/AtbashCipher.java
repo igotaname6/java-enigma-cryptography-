@@ -10,7 +10,7 @@ public class AtbashCipher implements EnigmaService {
     private String key;
 
 
-    AtbashCipher() {
+    public AtbashCipher() {
         this.key = null;
     }
 
