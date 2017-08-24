@@ -61,5 +61,27 @@ public class App {
 		}
 		return encipher;
 	}
+	public static String isKeyPresent(String[] args, String encipherMethod, ServiceRepository repo) throws Exception {
+
+		String key = null;
+		EnigmaService enigma;
+		int KEY_INDEX = 3;
+
+		enigma = repo.getByName(encipherMethod);
+		
+		if (enigma == null) {
+			throw new Exception("Wrong cipher name");
+		}
+		
+		if (enigma.isKeyRequired()) {
+			if (args.length >= KEY_INDEX ) {
+				key = args[KEY_INDEX];
+			}
+			else {
+   				throw new Exception("Keyword not found");
+			}
+		}
+		return key;
+	}
 }
 
