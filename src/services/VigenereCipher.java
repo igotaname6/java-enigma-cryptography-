@@ -9,7 +9,7 @@ public class VigenereCipher{
 
     private static String name = "Vinegere Cipher";
     private static Boolean isKeyRequiredBool = true;
-    private static HashMap tableau = getCipherTableau();
+    private static HashMap<String, Character> tableau = getCipherTableau();
 
     private String key;
 
@@ -55,30 +55,31 @@ public class VigenereCipher{
         char[] keyCharArray;
         char encryptedLetter;
         StringBuilder encryptedText;
+        int keyIndex;
 
-        textCharArray = text.toCharArray;
-        keyCharArray = this.key.toCharArray;
+        textCharArray = text.toCharArray();
+        keyCharArray = this.key.toCharArray();
         encryptedText = new StringBuilder();
 
-        for(int index = 0; index < textCharArray.size(); index++){
-
-
+        keyIndex  = 0;
+        for(int index = 0; index < textCharArray.length; index++){
+            encryptedLetter = encrypteOneChar(index, keyIndex, textCharArray, keyCharArray);
+            encryptedText.append(encryptedLetter);
+            keyIndex++;
+            if (keyIndex == keyCharArray.length){
+                keyIndex = 0;
+            }
         }
+        return encryptedText.toString();
     }
-    private static char enciphreOneChar(int index, char[] textCharArray, char[] keyCharArray){
+    private static Character encrypteOneChar(int index, int keyIndex, char[] textCharArray, char[] keyCharArray){
         char letterToEncrypt;
         char letterKey;
-        int keyIndex;
         String tableauKey;
 
-        if (index < keyCharArray.size){
-            keyIndex = index;
-        } else {
-            keyIndex = index - keyCharArray.size;
-        }
         letterToEncrypt = textCharArray[index];
         letterKey = keyCharArray[keyIndex];
-        tableauKey = String.valueOf(letterToEncrypt) + string.valueOf(letterKey);
+        tableauKey = String.valueOf(letterToEncrypt).concat(String.valueOf(letterKey));
         tableauKey = tableauKey.toUpperCase();
 
         return tableau.get(tableauKey);
@@ -98,6 +99,9 @@ public class VigenereCipher{
     }
 
     public static void main(String[] args){
-        System.out.println(tableau);
+        VigenereCipher cipher = new VigenereCipher();
+        cipher.setKey("FORTIFICATION");
+        String enc = cipher.encipher("DEFENDTHEEASTWALLOFTHECASTLE");
+        System.out.println(enc);
     }
 }
