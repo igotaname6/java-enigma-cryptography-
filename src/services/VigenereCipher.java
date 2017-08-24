@@ -91,8 +91,38 @@ public class VigenereCipher{
     }
 
     public String decipher(String text){
-        return " ";
+        Set<String> tableauKeysSet;
+        char[] textCharArray;
+        char[] keyCharArray;
+        StringBuilder decryptedText;
+        int keyIndex;
+
+        textCharArray = text.toCharArray();
+        keyCharArray = this.key.toCharArray();
+        decryptedText = new StringBuilder();
+        tableauKeysSet = tableau.keySet();
+
+        keyIndex  = 0;
+        for(char letterToDecrypt : textCharArray){
+            if (letterToDecrypt == ' '){
+                decryptedText.append(' ');
+                continue;
+            }
+            for(String tableauKey : tableauKeysSet){
+                if (tableauKey.charAt(0) == keyCharArray[keyIndex]){
+                    if(tableau.get(tableauKey) == letterToDecrypt){
+                        decryptedText.append(tableauKey.charAt(1));
+                    }
+                }
+            }
+            keyIndex++;
+            if (keyIndex == keyCharArray.length){
+                keyIndex = 0;
+            }
+        }
+        return decryptedText.toString();
     }
+
     public String getName(){
         return name;
     }
@@ -101,12 +131,5 @@ public class VigenereCipher{
     }
     public void setKey(String key){
         this.key = key;
-    }
-
-    public static void main(String[] args){
-        VigenereCipher cipher = new VigenereCipher();
-        cipher.setKey("FORTIFICATION");
-        String enc = cipher.encipher("DEFENDTHEEASTWALLOFTHECASTLE");
-        System.out.println(enc);
     }
 }
