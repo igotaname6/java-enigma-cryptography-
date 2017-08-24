@@ -12,6 +12,36 @@ public class App {
 
 	public static void main(String[] args) {
 		
+		Boolean encipher, showCiphers;
+		String encipherMethod;
+		String cipherModeString;
+		String key;
+		ServiceRepository repo;
+		TerminalTranslator terminalTranslator;
+
+		key = null;
+		repo = new ServiceRepository();
+		loadCiphers(repo);
+
+		try{
+			TerminalArgsValidator(args);
+			cipherModeString = args[0];
+			encipher = checkCipherOperation(cipherModeString, repo);
+			
+			if (encipher != null) {
+				TerminalArgsCipherValidator(args);
+				encipherMethod = args[1];
+				key = isKeyPresent(args, encipherMethod, repo);
+				terminalTranslator = new TerminalTranslator(encipher, encipherMethod, key);
+				terminalTranslator.initialize(repo);
+				terminalTranslator.start();
+			}		
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+
+
 	}
 
 	public static void TerminalArgsValidator(String[] args) throws Exception {
@@ -31,13 +61,13 @@ public class App {
 			throw new Exception("Enter cipher name");
 		}
 	}
-
 	public static void loadCiphers(ServiceRepository repo) {
 
 		repo.register(new Rot13Enigma());
 		repo.register(new AtbashCipher());
 	}
 	
+
 	public static Boolean checkCipherOperation(String cipherModeString, ServiceRepository repo) throws Exception {
 
 		Boolean encipher = null;
@@ -61,6 +91,7 @@ public class App {
 		}
 		return encipher;
 	}
+
 	public static String isKeyPresent(String[] args, String encipherMethod, ServiceRepository repo) throws Exception {
 
 		String key = null;
