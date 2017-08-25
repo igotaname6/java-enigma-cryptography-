@@ -39,6 +39,7 @@ public class App {
 			}
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
+			showHelp();
 		}
 	}
 
@@ -112,5 +113,13 @@ public class App {
 			}
 		}
 		return key;
+	}
+
+	public static void showHelp() {
+		System.out.println("Example of calling ciphers");
+		System.out.println("-e/-d/-l cipher name [keyword]");
+		System.out.println("-e - encipher");
+		System.out.println("-d - decipher");
+		System.out.println("-l - how all available ciphers");
 	}
 }
