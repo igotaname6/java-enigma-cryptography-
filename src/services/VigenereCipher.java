@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class VigenereCipher implements EnigmaService{
 
-    private static String name = "VinegereCipher";
+    private static String name = "VigenereCipher";
     private static Boolean isKeyRequiredBool = true;
     private static HashMap<String, Character> tableau = getCipherTableau();
 
