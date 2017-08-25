@@ -1,0 +1,11 @@
+<file>:<line>, Note: <note>
+/src/enigma/App.java:55, Note: CC: bad naming
+/src/enigma/App.java:16, Note: OOP: this could be instance attributes
+/src/app/TerminalTranslator.java:31, Note: CC: why "None"?
+/src/enigma/App.java:118, Note: OOP: good idea, could be even moved to a separate file
+/src/enigma/App.java:95, Note: OOP: why pass instance attributes by parameters?
+/src/enigma/App.java:86, Note: OOP: side effect
+/src/enigma/App.java:71, Note: OOP: repo is an instance attribute why pass it as parameter?
+/src/enigma/App.java:46, Note: CC: bad naming
+/src/enigma/App.java:63, Note: OOP: good idea, could be even moved to a separate file
+
