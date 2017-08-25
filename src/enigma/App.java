@@ -13,7 +13,7 @@ public class App {
 
 	public static void main(String[] args) {
 
-		Boolean encipher, showCiphers;
+		Boolean encipher;
 		String encipherMethod;
 		String cipherModeString;
 		String key;
@@ -33,9 +33,9 @@ public class App {
 				TerminalArgsCipherValidator(args);
 				encipherMethod = args[1];
 				key = isKeyPresent(args, encipherMethod, repo);
-				terminalTranslator = new TerminalTranslator(encipher, encipherMethod, key);
+                terminalTranslator = new TerminalTranslator(encipher, encipherMethod, key);
 				terminalTranslator.initialize(repo);
-				terminalTranslator.start();
+                terminalTranslator.start();
 			}
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
@@ -98,7 +98,7 @@ public class App {
 
 		String key = null;
 		EnigmaService enigma;
-		int KEY_INDEX = 3;
+		int KEY_INDEX = 2;
 
 		enigma = repo.getByName(encipherMethod);
 
@@ -108,7 +108,7 @@ public class App {
 
 		if (enigma.isKeyRequired()) {
 			if (args.length >= KEY_INDEX ) {
-				key = args[KEY_INDEX];
+                key = args[KEY_INDEX];
 			}
 			else {
    				throw new Exception("Keyword not found");
