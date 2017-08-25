@@ -9,7 +9,7 @@ public class ServiceRepository implements ServiceProvider, ServiceRegistry {
     private List<EnigmaService> enigmasList;
 
     public ServiceRepository() {
-        this.enigmasList = new ArrayList();
+        this.enigmasList = new ArrayList<EnigmaService>();
     }
 
     public void register(EnigmaService service) {
@@ -17,7 +17,9 @@ public class ServiceRepository implements ServiceProvider, ServiceRegistry {
     }
 
     public ArrayList<String> listAll() {
-        ArrayList<String> enigmasNames = new ArrayList();
+        ArrayList<String> enigmasNames;
+
+        enigmasNames = new ArrayList<String>();
 
         for (EnigmaService enigma : this.enigmasList) {
             enigmasNames.add(enigma.getName());
