@@ -6,7 +6,7 @@ public class AtbashCipher implements EnigmaService {
 
     private static List<Character> alphabet = createAlphabet();
     private static List<Character> reverseAlphabet = reverseAlphabet(alphabet);
-    private static String name = "Atbash Cipher";
+    private static String name = "AtbashCipher";
     private String key;
 
 
