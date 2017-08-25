@@ -58,8 +58,8 @@ public class VigenereCipher implements EnigmaService{
         StringBuilder encryptedText;
         int keyIndex;
 
-        textCharArray = text.toCharArray();
-        keyCharArray = this.key.toCharArray();
+        textCharArray = text.toUpperCase().toCharArray();
+        keyCharArray = this.key.toUpperCase().toCharArray();
         encryptedText = new StringBuilder();
 
         keyIndex  = 0;
@@ -97,8 +97,8 @@ public class VigenereCipher implements EnigmaService{
         StringBuilder decryptedText;
         int keyIndex;
 
-        textCharArray = text.toCharArray();
-        keyCharArray = this.key.toCharArray();
+        textCharArray = text.toUpperCase().toCharArray();
+        keyCharArray = this.key.toUpperCase().toCharArray();
         decryptedText = new StringBuilder();
         tableauKeysSet = tableau.keySet();
 
