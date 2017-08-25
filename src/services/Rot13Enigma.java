@@ -2,7 +2,11 @@ package services;
 
 public class Rot13Enigma implements EnigmaService {
 
+    private static String name = "Rot13";
+    private String key;
+
     public Rot13Enigma() {
+        this.key = null;
     }
     public String encipher(String text){
 
@@ -26,14 +30,19 @@ public class Rot13Enigma implements EnigmaService {
     }
         
     public String getName(){
-        return "Rot13";
+        return name;
     } 
         
     public boolean isKeyRequired(){
-        return false;
+        if (this.key == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
     
     public void setKey(String key) {
+        this.key = key;
     }
 
 }

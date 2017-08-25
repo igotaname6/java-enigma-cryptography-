@@ -40,9 +40,6 @@ public class App {
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
-
-
-
 	}
 
 	public static void TerminalArgsValidator(String[] args) throws Exception {
